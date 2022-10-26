@@ -11,7 +11,7 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -27,14 +27,14 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
-        fingerprints: false,
         inject: true,
+        fingerprints: false,
         name: 'JATE',
         short_name: 'JATE',
         description: 'JATE PWA allows you to edit text offline',
         background_color: '#225ca3',
         theme_color: '#225ca3',
-        start_url: './',
+        start_url: '/',
         publicPath: './',
         icons: [
           {
@@ -60,7 +60,7 @@ module.exports = () => {
               loader: 'babel-loader',
               options: {
                 presets: ['@babel/preset-env'],
-                plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+                plugins: ['@babel/plugin-proposal-class-properties', '@babel/plugin-transform-runtime'],
               },
             },
           },
